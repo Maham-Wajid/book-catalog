@@ -269,7 +269,7 @@
                         </div>
                         <div class="form-group">
                             <label for="year">Year Published *</label>
-                            <input v-model.number="newBook.year_published" type="number" id="year" required placeholder="e.g., 2023">
+                            <input v-model.number="newBook.published_year" type="number" id="year" required placeholder="e.g., 2023">
                         </div>
                         <div class="form-group">
                             <label for="summary">Summary</label>
@@ -292,7 +292,7 @@
                         <div v-for="book in books" :key="book.id" class="book-card">
                             <div class="book-title">{{ book.title }}</div>
                             <div class="book-author">by {{ book.author }}</div>
-                            <div class="book-year">Published: {{ book.year_published }}</div>
+                            <div class="book-year">Published: {{ book.published_year }}</div>
                             <div v-if="book.summary" class="book-summary">{{ book.summary }}</div>
                             <div class="book-actions">
                                 <button class="btn-small btn-edit" @click="editBook(book)">Edit</button>
@@ -315,7 +315,7 @@
                     newBook: {
                         title: '',
                         author: '',
-                        year_published: new Date().getFullYear(),
+                        published_year: new Date().getFullYear(),
                         summary: ''
                     },
                     editingBook: null,
@@ -398,7 +398,7 @@
                     this.newBook = {
                         title: '',
                         author: '',
-                        year_published: new Date().getFullYear(),
+                        published_year: new Date().getFullYear(),
                         summary: ''
                     };
                     this.editingBook = null;
