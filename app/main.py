@@ -28,6 +28,7 @@ app.add_middleware(
 )
 
 
+@app.get("/books", response_model=list[schemas.BookResponse])
 @app.get("/books/", response_model=list[schemas.BookResponse])
 async def get_books(db: Session = Depends(get_db)):
     """
@@ -57,6 +58,7 @@ def get_book(book_id: int, db: Session = Depends(get_db)):
     return db_book
 
 
+@app.post("/books", response_model=schemas.BookResponse, status_code=201)
 @app.post("/books/", response_model=schemas.BookResponse, status_code=201)
 def create_book(book: schemas.BookCreate, db: Session = Depends(get_db)):
     """

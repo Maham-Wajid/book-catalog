@@ -336,7 +336,7 @@
                 async fetchBooks() {
                     this.loading = true;
                     try {
-                        const response = await fetch(`${this.apiBase()}/`);
+                        const response = await fetch(`${this.apiBase()}`);
                         if (!response.ok) throw new Error('Failed to fetch books');
                         this.books = await response.json();
                     } catch (error) {
@@ -348,7 +348,7 @@
                 },
                 async addBook() {
                     try {
-                        const response = await fetch(`${this.apiBase()}/`, {
+                        const response = await fetch(`${this.apiBase()}`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(this.newBook)
