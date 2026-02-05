@@ -321,7 +321,9 @@
                     editingBook: null,
                     loading: false,
                     message: null,
-                    apiUrl: 'http://127.0.0.1:8000/books'
+                    apiUrl: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                        ? 'http://127.0.0.1:8000/books'
+                        : 'https://book-catalog-production-6227.up.railway.app/books'
                 }
             },
             mounted() {
