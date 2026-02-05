@@ -4,6 +4,7 @@ __pycache__/
 .DS_Store
 .env
 venv/
+.venv/
 .vscode/
 .pytest_cache/
 *.egg-info/
